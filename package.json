@@ -1,0 +1,16 @@
+{
+  "name": "untitled",
+  "version": "0.0.0",
+  "description": "Barebones thing to play around w/.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": "",
+  "author": "Ryan Coppolo",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~3.0.0rc4"
+  }
+}
