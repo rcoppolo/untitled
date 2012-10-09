@@ -11,6 +11,7 @@ var config = {
 
 requirejs.optimize(config, function(buildResponse) {
   var contents = fs.readFileSync(config.out, 'utf8');
+  console.log("...javascripts compiled by require.js");
 });
 
 var app = express();
@@ -19,7 +20,8 @@ app.set('view engine', 'jade');
 
 app.use(stylus.middleware({
   src: __dirname + '/public/stylesheets',
-  dest: __dirname + '/public'
+  dest: __dirname + '/public',
+  // compress: true
 }));
 
 app.use(express.static(__dirname + '/public'));
