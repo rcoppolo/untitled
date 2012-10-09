@@ -1,5 +1,17 @@
+var fs = require('fs');
 var express = require('express');
 var stylus = require('stylus');
+var requirejs = require('requirejs');
+
+var config = {
+  baseUrl: __dirname + '/public/javascripts',
+  name: 'main',
+  out: __dirname + '/public/main.js'
+};
+
+requirejs.optimize(config, function(buildResponse) {
+  var contents = fs.readFileSync(config.out, 'utf8');
+});
 
 var app = express();
 
