@@ -1,7 +1,53 @@
 @import "reset"
+@import "type"
 
 body
-  color white
-  background black
-  font-family Georgia
-  font-size 18px
+  #top
+    background black
+    color white
+    padding 0 10px
+    h1
+      text-transform uppercase
+      position relative
+      top .25em
+  #middle
+    a#new_mix
+      font-size 1.1em
+    padding 0 10px
+    #new
+      form
+        padding 0 10px
+        display none
+        position relative
+        input
+          width 85%
+          margin-left -10px
+          border 5px solid black
+          padding 5px
+          padding-right 16%
+          outline none
+          font-size 1em
+          font-family $tisa
+        a#new_mix_cancel, a#new_song_cancel
+          font-size .8em
+          line-height 1.25em
+          color rgba(0,0,0,.3)
+          position absolute
+          right 5px
+          bottom 5px
+          cursor pointer
+      a
+        margin 29px 0 16px 0
+        display block
+        padding 0 10px
+        color #FF0A6C
+        text-decoration none
+        &hover
+          text-decoration underline
+    #mixes, #songs
+      padding 10px 0
+      .preview, .song
+        padding 10px
+
+      .preview + .preview, .song + .song
+        border-top 1px solid rgba(0,0,0,.1)

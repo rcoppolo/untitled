@@ -14,5 +14,5 @@ requirejs([
   'backbone'
 
 ], function($, _, Backbone) {
-  $('p').text("Hey there sweet stuff.");
+
 });

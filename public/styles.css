@@ -122,8 +122,90 @@ table {
   border-spacing: 0;
 }
 body {
-  color: #fff;
+  font-family: "ff-tisa-web-pro", serif;
+  font-size: 16px;
+}
+h1 {
+  font-family: "freight-sans-pro", sans-serif;
+  font-size: 51.776px;
+  line-height: 50px;
+}
+h2 {
+  font-size: 51.776px;
+  line-height: 75px;
+}
+h3 {
+  font-size: 25.888px;
+  line-height: 50px;
+}
+p {
+  line-height: 25px;
+  margin: 12.5px 0 13.5px 0;
+}
+body #top {
   background: #000;
-  font-family: Georgia;
-  font-size: 18px;
+  color: #fff;
+  padding: 0 10px;
+}
+body #top h1 {
+  text-transform: uppercase;
+  position: relative;
+  top: 0.25em;
+}
+body #middle {
+  padding: 0 10px;
+}
+body #middle a#new_mix {
+  font-size: 1.1em;
+}
+body #middle #new form {
+  padding: 0 10px;
+  display: none;
+  position: relative;
+}
+body #middle #new form input {
+  width: 85%;
+  margin-left: -10px;
+  border: 5px solid #000;
+  padding: 5px;
+  padding-right: 16%;
+  outline: none;
+  font-size: 1em;
+  font-family: $tisa;
+}
+body #middle #new form a#new_mix_cancel,
+body #middle #new form a#new_song_cancel {
+  font-size: 0.8em;
+  line-height: 1.25em;
+  color: rgba(0,0,0,0.3);
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  cursor: pointer;
+}
+body #middle #new a {
+  margin: 29px 0 16px 0;
+  display: block;
+  padding: 0 10px;
+  color: #ff0a6c;
+  text-decoration: none;
+}
+body #middle #new ahover {
+  text-decoration: underline;
+}
+body #middle #mixes,
+body #middle #songs {
+  padding: 10px 0;
+}
+body #middle #mixes .preview,
+body #middle #songs .preview,
+body #middle #mixes .song,
+body #middle #songs .song {
+  padding: 10px;
+}
+body #middle #mixes .preview + .preview,
+body #middle #songs .preview + .preview,
+body #middle #mixes .song + .song,
+body #middle #songs .song + .song {
+  border-top: 1px solid rgba(0,0,0,0.1);
 }

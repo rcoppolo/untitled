@@ -1,0 +1,31 @@
+golden = 1.618
+
+freight = "freight-sans-pro", sans-serif
+skolar = "skolar", serif
+tisa = "ff-tisa-web-pro", serif
+
+body-text = tisa
+
+_font-size = 16px
+baseline = 25px
+
+body
+  font-family body-text
+  font-size _font-size
+
+h1
+  font-family freight
+  font-size (2 * golden) * _font-size
+  line-height 2 * baseline
+
+h2
+  font-size (2 * golden) * _font-size
+  line-height 3 * baseline
+
+h3
+  font-size (1 * golden) * _font-size
+  line-height 2 * baseline
+
+p
+  line-height baseline
+  margin (baseline / 2) 0 ((baseline / 2) + 1px) 0
