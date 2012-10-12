@@ -4,7 +4,11 @@ var stylus = require('stylus');
 var requirejs = require('requirejs');
 
 var mongoose = require('mongoose');
-var db = mongoose.createConnection('localhost', 'untitled');
+if(process.env.MONGOLAB_URL) {
+  var db = mongoose.connect(process.env.MONGOLAB_URL);
+} else {
+  var db = mongoose.createConnection('localhost', 'untitled');
+}
 
 var mixSchema = new mongoose.Schema({
   title: String,
@@ -103,4 +107,4 @@ app.delete('/api/mixes/:id', function(req, res) {
   });
 });
 
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
