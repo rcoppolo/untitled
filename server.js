@@ -2,10 +2,10 @@ var fs = require('fs');
 var express = require('express');
 var stylus = require('stylus');
 var requirejs = require('requirejs');
-
 var mongoose = require('mongoose');
-if(process.env.MONGOLAB_URL) {
-  var db = mongoose.connect(process.env.MONGOLAB_URL);
+
+if(process.env.MONGOLAB_URI) {
+  var db = mongoose.connect(process.env.MONGOLAB_URI);
 } else {
   var db = mongoose.createConnection('localhost', 'untitled');
 }
