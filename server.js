@@ -4,11 +4,7 @@ var stylus = require('stylus');
 var requirejs = require('requirejs');
 var mongoose = require('mongoose');
 
-if(process.env.MONGOLAB_URI) {
-  var db = mongoose.connect(process.env.MONGOLAB_URI);
-} else {
-  var db = mongoose.createConnection('localhost', 'untitled');
-}
+var db = mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/untitled");
 
 var mixSchema = new mongoose.Schema({
   title: String,
