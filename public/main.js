@@ -5,6 +5,10 @@ requirejs.config({
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
     }
+  },
+  paths: {
+    'views': 'app/views',
+    'templates': 'app/templates'
   }
 });
 
@@ -13,12 +17,14 @@ requirejs([
   'jquery',
   'underscore',
   'backbone',
-  'app/models/mix'
+  'app/routers/router'
 
-], function($, _, Backbone, Mix) {
+], function($, _, Backbone, Router) {
 
   $(document).ready(function() {
 
+    var router = new Router();
+    Backbone.history.start();
 
   });
 
