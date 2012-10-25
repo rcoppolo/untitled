@@ -4,7 +4,7 @@ requirejs.config({
     'backbone': {
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
-    },
+    }
   }
 });
 
@@ -13,13 +13,12 @@ requirejs([
   'jquery',
   'underscore',
   'backbone',
-  'mix'
+  'app/models/mix'
 
 ], function($, _, Backbone, Mix) {
 
   $(document).ready(function() {
 
-    window.hey = new Mix();
 
   });
 
