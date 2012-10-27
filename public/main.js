@@ -4,9 +4,14 @@ requirejs.config({
     'backbone': {
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
+    },
+    'underscore' : {
+      exports: '_'
     }
   },
   paths: {
+    'models': 'app/models',
+    'collections': 'app/collections',
     'views': 'app/views',
     'templates': 'app/templates'
   }

@@ -1,18 +1,15 @@
-define(['backbone', 'templates/main'], function(Backbone, template) {
+define(['backbone', 'tpl!templates/main.html'], function(Backbone, template) {
 
   var Main = Backbone.View.extend({
 
-    _.templateSettings = { interpolate : /\{\{(.+?)\}\}/g };
-
     el: '#middle',
-    template: template,
 
     events: {
       'click #click': 'hi'
     },
 
     render: function() {
-      $(this.el).append("<span id='click'>Click here.</span>");
+      $(this.el).append(template({text: "hiya man."}));
     },
 
     hi: function() {

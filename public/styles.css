@@ -154,6 +154,7 @@ body #top h1 {
 }
 body #middle {
   padding: 0 10px;
+  padding-top: 10px;
 }
 body #middle a#new_mix {
   font-size: 1.1em;
