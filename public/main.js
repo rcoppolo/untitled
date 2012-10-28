@@ -22,13 +22,14 @@ requirejs([
   'jquery',
   'underscore',
   'backbone',
-  'app/routers/router'
+  'app/routers/router',
+  'bootstrap'
 
-], function($, _, Backbone, Router) {
+], function($, _, Backbone, Router, data) {
 
   $(document).ready(function() {
 
-    var router = new Router();
+    var router = new Router({data: data});
     Backbone.history.start();
 
   });

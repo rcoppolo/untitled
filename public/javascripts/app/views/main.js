@@ -1,21 +1,14 @@
-define(['backbone', 'tpl!templates/main.html'], function(Backbone, template) {
+define(['backbone', 'collections/mixes', 'views/mixes_view', 'tpl!templates/main.html'], function(Backbone, Mixes, MixesView, template) {
 
   var Main = Backbone.View.extend({
 
-    el: '#middle',
-
-    events: {
-      'click #click': 'hi'
-    },
+    el: 'body',
 
     render: function() {
-      $(this.el).append(template({text: "hiya man."}));
+      this.mixes_view = new MixesView({ collection: this.collection });
+      this.mixes_view.render();
+      return this;
     },
-
-    hi: function() {
-      console.log("hello there.");
-    }
-
 
   });
 

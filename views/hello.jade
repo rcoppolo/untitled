@@ -7,7 +7,19 @@ html
       try{Typekit.load();}catch(e){}
   body
     #top
-      h1 Muck
+      .inner
+        h1 Muck
     #middle
+      .inner
+        #mixes
     #bottom
+      .inner
     script(data-main="/main.js", src="/require.js")
+    script(type='text/javascript')
+      define('bootstrap', [], function() {
+        var data =  {
+          mixes: !{JSON.stringify(mixes)}
+        };
+        return data;
+      });
+

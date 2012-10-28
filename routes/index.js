@@ -7,7 +7,9 @@ var Mix = app.db.model('Mix', new mongoose.Schema({
 }));
 
 app.get('/', function(req, res) {
-  res.render('hello');
+  Mix.find(function(err, mixes) {
+    res.render('hello', {mixes: mixes});
+  });
 });
 
 app.get('/api/mixes', function(req, res) {
