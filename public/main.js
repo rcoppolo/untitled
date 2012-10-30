@@ -27,10 +27,24 @@ requirejs([
 
 ], function($, _, Backbone, Router, data) {
 
+
   $(document).ready(function() {
 
     var router = new Router({data: data});
-    Backbone.history.start();
+    window.router = router;
+    Backbone.history.start({pushstate: true});
+
+    // $(document).on('click', 'p', function(e) {
+    //   var href = $(this).attr('data-href');
+    //   var protocol = this.protocol + '//';
+    //   if (href
+    //     && href.slice(0, protocol.length) !== protocol
+    //     && !/javascript/.test(href)) {
+    //       e.preventDefault();
+    //       Backbone.history.navigate(href, true);
+    //   }
+
+    // });
 
   });
 
