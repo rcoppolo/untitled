@@ -31,20 +31,19 @@ requirejs([
   $(document).ready(function() {
 
     var router = new Router({data: data});
-    window.router = router;
-    Backbone.history.start({pushstate: true});
+    Backbone.history.start({pushState: true});
 
-    // $(document).on('click', 'p', function(e) {
-    //   var href = $(this).attr('data-href');
-    //   var protocol = this.protocol + '//';
-    //   if (href
-    //     && href.slice(0, protocol.length) !== protocol
-    //     && !/javascript/.test(href)) {
-    //       e.preventDefault();
-    //       Backbone.history.navigate(href, true);
-    //   }
+    $(document).on('click', 'p', function(e) {
+      var href = $(this).attr('data-href');
+      var protocol = this.protocol + '//';
+      if (href
+        && href.slice(0, protocol.length) !== protocol
+        && !/javascript/.test(href)) {
+          e.preventDefault();
+          Backbone.history.navigate(href, true);
+      }
 
-    // });
+    });
 
   });
 
