@@ -7,7 +7,6 @@ define(['backbone', 'views/mix_preview'], function(Backbone, MixPreview) {
     initialize: function() {
       this.collection.on('add', this.render, this);
       this.collection.on('change', this.render, this);
-      window.hey = this;
     },
 
     render: function() {

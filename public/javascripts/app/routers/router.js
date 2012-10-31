@@ -4,16 +4,22 @@ define(['backbone', 'views/main', 'collections/mixes'], function(Backbone, Main,
 
     initialize: function(options) {
       this.mixes = new Mixes(options.data.mixes);
+      this.main = new Main({collection: this.mixes});
     },
 
     routes: {
-      '': 'index'
+      '': 'index',
+      ':id': 'show'
     },
 
     index: function() {
-      var main = new Main({collection: this.mixes});
-      main.render();
+      this.main.renderMixes();
+    },
+
+    show: function(id) {
+      this.main.renderMix(id);
     }
+
   });
 
   return Router;
