@@ -7,7 +7,8 @@ requirejs.config({
     },
     'underscore' : {
       exports: '_'
-    }
+    },
+    'jquery.rdio' : ['jquery']
   },
   paths: {
     'models': 'app/models',
@@ -23,7 +24,8 @@ requirejs([
   'underscore',
   'backbone',
   'app/routers/router',
-  'bootstrap'
+  'bootstrap',
+  'jquery.rdio'
 
 ], function($, _, Backbone, Router, data) {
 
@@ -32,6 +34,15 @@ requirejs([
 
     var router = new Router({data: data});
     Backbone.history.start({pushState: true});
+
+    $rdio = $('#rdio');
+
+    $rdio.rdio('GAlNi78J_____zlyYWs5ZG02N2pkaHlhcWsyOWJtYjkyN2xvY2FsaG9zdEbwl7EHvbylWSWFWYMZwfc=');
+
+    $rdio.on('ready.rdio', function() {
+      console.log('playing');
+      $(this).rdio().play('t16930593');
+    });
 
     $(document).on('click', 'p', function(e) {
       var href = $(this).attr('data-href');
