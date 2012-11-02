@@ -25,23 +25,31 @@ requirejs([
   'backbone',
   'app/routers/router',
   'bootstrap',
+  'http://connect.soundcloud.com/sdk.js',
   'jquery.rdio'
 
 ], function($, _, Backbone, Router, data) {
-
 
   $(document).ready(function() {
 
     var router = new Router({data: data});
     Backbone.history.start({pushState: true});
 
-    $rdio = $('#rdio');
+    // $rdio = $('#rdio');
+    // $rdio.rdio('GAlNi78J_____zlyYWs5ZG02N2pkaHlhcWsyOWJtYjkyN2xvY2FsaG9zdEbwl7EHvbylWSWFWYMZwfc=');
+    // $rdio.on('ready.rdio', function() {
+    //   console.log('playing');
+    //   $(this).rdio().play('t16930593');
+    // });
 
-    $rdio.rdio('GAlNi78J_____zlyYWs5ZG02N2pkaHlhcWsyOWJtYjkyN2xvY2FsaG9zdEbwl7EHvbylWSWFWYMZwfc=');
+    SC.initialize({
+      client_id: 'client_id'
+    });
 
-    $rdio.on('ready.rdio', function() {
-      console.log('playing');
-      $(this).rdio().play('t16930593');
+    SC.get('/resolve', {url: 'http://soundcloud.com/ofwgkta-official/chum'}, function(track) {
+      SC.stream('/tracks/' + track.id, function(sound) {
+        sound.play();
+      });
     });
 
     $(document).on('click', 'p', function(e) {
