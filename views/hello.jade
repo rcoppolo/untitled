@@ -15,6 +15,7 @@ html
     #bottom
       .inner
     #rdio
+    #yt
     script(data-main="/main.js", src="/require.js")
     script(type='text/javascript')
       define('bootstrap', [], function() {
@@ -23,4 +24,36 @@ html
         };
         return data;
       });
+    script
+      var tag = document.createElement('script');
+      tag.src = "//www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      var player;
 
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('yt', {
+          height: '390',
+          width: '640',
+          videoId: 'c0mxXrHowHQ',
+          events: {
+            'onReady': onPlayerReady
+          }
+        });
+      }
+
+      function onPlayerReady(event) {
+        player.setPlaybackQuality("hd720");
+        var playButton = $("<p class='play'>Play.</p>");
+        $('#middle .inner').append(playButton);
+
+        $('#middle').on('click', '.play', function() {
+          player.playVideo();
+          $(this).addClass('pause').text('Pause.').removeClass('play');
+        });
+
+        $('#middle').on('click', '.pause', function() {
+          player.pauseVideo();
+          $(this).addClass('play').text('Play.').removeClass('pause');
+        });
+      }
