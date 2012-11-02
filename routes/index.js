@@ -1,10 +1,22 @@
 var mongoose = require('mongoose');
 var config = require('../config');
 
+var song_schema = new mongoose.Schema({
+  title: String,
+  artist: String,
+  key: String,
+  url: String,
+  starts: Number,
+  ends: Number,
+});
+
+var Song = app.db.model('Song', song_schema);
+
 var Mix = app.db.model('Mix', new mongoose.Schema({
   title: String,
   locked: Boolean,
-  plays: Number
+  plays: Number,
+  songs: [song_schema]
 }));
 
 app.get('/', function(req, res) {
@@ -44,7 +56,8 @@ app.put('/api/mixes/:id', function(req, res) {
   return Mix.findById(req.params.id, function(err, mix) {
     mix.title = req.body.title;
     mix.locked = req.body.locked;
-    return todo.save(function(err) {
+    mix.songs = req.body.songs;
+    return mix.save(function(err) {
       if(!err) {
         console.log("Updated " + mix.title);
       }

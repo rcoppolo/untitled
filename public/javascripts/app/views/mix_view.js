@@ -1,4 +1,4 @@
-define(['backbone', 'views/song_view'], function(Backbone, SongView) {
+define(['backbone', 'views/song_view', 'models/song'], function(Backbone, SongView, Song) {
 
   var MixView = Backbone.View.extend({
 

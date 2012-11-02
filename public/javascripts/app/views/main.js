@@ -11,8 +11,6 @@ define(['backbone', 'collections/mixes', 'views/mixes_view', 'views/mix_view', '
     },
 
     renderMix: function(id) {
-      console.log(id);
-      window.hey = this.collection.get(id);
       this.mix_view = new MixView({ model: this.collection.get(id) });
       this.mix_view.render();
       return this;

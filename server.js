@@ -5,6 +5,9 @@ var mongoose = require('mongoose');
 app = express();
 
 app.configure(function() {
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(app.router);
   app.db = mongoose.connect(process.env.MONGOLAB_URI ||
     "mongodb://localhost/untitled");
   app.set('view engine', 'jade');
