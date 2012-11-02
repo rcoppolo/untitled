@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var config = require('../config');
 
 var Mix = app.db.model('Mix', new mongoose.Schema({
   title: String,
@@ -8,7 +9,7 @@ var Mix = app.db.model('Mix', new mongoose.Schema({
 
 app.get('/', function(req, res) {
   Mix.find(function(err, mixes) {
-    res.render('hello', {mixes: mixes});
+    res.render('hello', { mixes: mixes, sc_client_id: config.sc_client_id });
   });
 });
 

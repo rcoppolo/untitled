@@ -57,3 +57,8 @@ html
           $(this).addClass('play').text('Play.').removeClass('pause');
         });
       }
+    script(src="http://connect.soundcloud.com/sdk.js")
+    script
+      SC.initialize({
+        client_id: "#{sc_client_id}"
+      });

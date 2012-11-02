@@ -25,7 +25,6 @@ requirejs([
   'backbone',
   'app/routers/router',
   'bootstrap',
-  'http://connect.soundcloud.com/sdk.js',
   'jquery.rdio'
 
 ], function($, _, Backbone, Router, data) {
@@ -42,15 +41,11 @@ requirejs([
     //   $(this).rdio().play('t16930593');
     // });
 
-    SC.initialize({
-      client_id: 'client_id'
-    });
-
-    SC.get('/resolve', {url: 'http://soundcloud.com/ofwgkta-official/chum'}, function(track) {
-      SC.stream('/tracks/' + track.id, function(sound) {
-        sound.play();
-      });
-    });
+    // SC.get('/resolve', {url: 'http://soundcloud.com/ofwgkta-official/chum'}, function(track) {
+    //   SC.stream('/tracks/' + track.id, function(sound) {
+    //     sound.play();
+    //   });
+    // });
 
     $(document).on('click', 'p', function(e) {
       var href = $(this).attr('data-href');
