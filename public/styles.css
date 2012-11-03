@@ -167,6 +167,13 @@ body #middle {
 body #middle a#new_mix {
   font-size: 1.1em;
 }
+body #middle .delete {
+  color: rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+body #middle .confirm {
+  color: #f00;
+}
 body #middle #new form {
   padding: 0 10px;
   display: none;
