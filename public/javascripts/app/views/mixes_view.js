@@ -1,8 +1,6 @@
-define(['backbone', 'views/mix_preview'], function(Backbone, MixPreview) {
+define(['backbone', 'views/mix_preview', 'tpl!templates/mixes_view.html'], function(Backbone, MixPreview, template) {
 
   var MixesView = Backbone.View.extend({
-
-    el: '#mixes',
 
     initialize: function() {
       this.collection.on('add', this.render, this);
@@ -10,11 +8,11 @@ define(['backbone', 'views/mix_preview'], function(Backbone, MixPreview) {
     },
 
     render: function() {
-      var $this = this;
-      $($this.el).empty();
+      $('#middle').empty();
+      $('#middle').html($(this.el).html(template({mix: this.model})));
       this.collection.forEach(function(model) {
         var mix_preview = new MixPreview({ model: model });
-        $($this.el).append(mix_preview.el);
+        $('#mixes').append(mix_preview.el);
       });
       return this;
     }
