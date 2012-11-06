@@ -1,6 +1,6 @@
-define(['backbone', 'views/main', 'collections/mixes'], function(Backbone, Main, Mixes) {
+define(['support', 'views/main', 'collections/mixes'], function(Support, Main, Mixes) {
 
-  var Router = Backbone.Router.extend({
+  var Router = Support.SwappingRouter.extend({
 
     initialize: function(options) {
       this.mixes = new Mixes(options.data.mixes);
