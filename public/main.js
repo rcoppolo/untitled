@@ -23,13 +23,16 @@ requirejs([
   'jquery',
   'underscore',
   'backbone',
+  'support',
   'app/routers/router',
   'bootstrap',
   'jquery.rdio'
 
-], function($, _, Backbone, Router, data) {
+], function($, _, Backbone, Support, Router, data) {
 
   $(document).ready(function() {
+
+    window.heyy = Support;
 
     var router = new Router({data: data});
     Backbone.history.start({pushState: true});
