@@ -1,8 +1,6 @@
-define(['backbone', 'views/song_view', 'models/song'], function(Backbone, SongView, Song) {
+define(['backbone', 'views/song_view', 'models/song', 'tpl!templates/mix_view.html'], function(Backbone, SongView, Song, template) {
 
   var MixView = Backbone.View.extend({
-
-    el: '#mixes',
 
     initialize: function() {
       this.model.on('change', this.render, this);
@@ -15,12 +13,11 @@ define(['backbone', 'views/song_view', 'models/song'], function(Backbone, SongVi
     },
 
     render: function() {
-      var $this = this;
-      $($this.el).empty();
-      $($this.el).append("<span class='delete'>Delete this mix.</span>");
+      $('#middle').empty();
+      $('#middle').html($(this.el).html(template({mix: this.model})));
       this.model.songs.models.forEach(function(model) {
         var song_view = new SongView({ model: model });
-        $($this.el).append(song_view.el);
+        $('#mixes').append(song_view.el);
       });
       return this;
     },

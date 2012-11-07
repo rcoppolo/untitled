@@ -2,8 +2,6 @@ define(['backbone', 'views/mix_preview', 'models/mix'], function(Backbone, MixPr
 
   var MixesView = Backbone.View.extend({
 
-    el: '#mixes',
-
     initialize: function() {
       this.collection.on('add', this.render, this);
       this.collection.on('change', this.render, this);
