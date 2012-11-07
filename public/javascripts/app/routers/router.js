@@ -1,10 +1,9 @@
-define(['support', 'views/main', 'collections/mixes'], function(Support, Main, Mixes) {
+define(['support', 'views/mixes_view', 'views/mix_view', 'collections/mixes'], function(Support, MixesView, MixView, Mixes) {
 
   var Router = Support.SwappingRouter.extend({
 
     initialize: function(options) {
       this.mixes = new Mixes(options.data.mixes);
-      this.main = new Main({collection: this.mixes});
     },
 
     routes: {
@@ -13,11 +12,13 @@ define(['support', 'views/main', 'collections/mixes'], function(Support, Main, M
     },
 
     index: function() {
-      this.main.renderMixes();
+      var mixes_view = new MixesView({ collection: this.mixes });
+      this.swap(mixes_view);
     },
 
     show: function(id) {
-      this.main.renderMix(id);
+      var mix_view = new MixView({ model: this.mixes.get(id) });
+      this.swap(mix_view);
     }
 
   });

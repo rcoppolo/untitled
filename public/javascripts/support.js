@@ -12,7 +12,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
         this.currentView.leave();
       }
       this.currentView = newView;
-      $(this.el).empty().append(this.cerrentView.render().el);
+      $(this.el).empty().append(this.currentView.render().el);
     }
   });
 
