@@ -4,7 +4,7 @@ define(['backbone', 'views/song_view', 'models/song', 'tpl!templates/mix_view.ht
 
     initialize: function() {
       this.model.on('change', this.render, this);
-      this.model.on('destroy', this.remove, this);
+      this.model.on('destroy', this.leave, this);
     },
 
     events: {
@@ -13,11 +13,10 @@ define(['backbone', 'views/song_view', 'models/song', 'tpl!templates/mix_view.ht
     },
 
     render: function() {
-      $('#middle').empty();
-      $('#middle').html($(this.el).html(template({mix: this.model})));
+      $(this.el).html(template({mix: this.model}));
       this.model.songs.models.forEach(function(model) {
         var song_view = new SongView({ model: model });
-        $('#mixes').append(song_view.el);
+        $('#songs').append(song_view.el);
       });
       return this;
     },

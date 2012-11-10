@@ -3,6 +3,7 @@ define(['backbone', 'tpl!templates/mix_preview.html'], function(Backbone, templa
   var MixPreview = Backbone.View.extend({
 
     initialize: function() {
+      this.model.on('sync', this.render, this);
       this.render();
     },
 

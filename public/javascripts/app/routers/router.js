@@ -3,6 +3,7 @@ define(['support', 'views/mixes_view', 'views/mix_view', 'collections/mixes'], f
   var Router = Support.SwappingRouter.extend({
 
     initialize: function(options) {
+      this.el = $('#middle');
       this.mixes = new Mixes(options.data.mixes);
     },
 

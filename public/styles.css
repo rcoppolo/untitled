@@ -170,6 +170,12 @@ body #middle #new {
 body #middle a#new_mix {
   font-size: 1.1em;
 }
+body #middle #create {
+  display: none;
+}
+body #middle .nope {
+  color: rgba(0,0,0,0.4);
+}
 body #middle .delete {
   color: rgba(0,0,0,0.3);
   cursor: pointer;
