@@ -1,5 +1,5 @@
 requirejs.config({
-  baseUrl: 'javascripts',
+  baseUrl: '/javascripts',
   shim: {
     'backbone': {
       deps: ['underscore', 'jquery'],
@@ -57,7 +57,7 @@ requirejs([
         && href.slice(0, protocol.length) !== protocol
         && !/javascript/.test(href)) {
           e.preventDefault();
-          Backbone.history.navigate(href, true);
+          Backbone.history.navigate('mixes/' + href, true);
       }
 
     });

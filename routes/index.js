@@ -25,13 +25,19 @@ app.get('/', function(req, res) {
   });
 });
 
+app.get('/mixes/:id', function(req, res) {
+  Mix.findById(req.params.id, function(err, mix) {
+    res.render('show', { mix: mix, sc_client_id: config.sc_client_id });
+  });
+});
+
 app.get('/api/mixes', function(req, res) {
   return Mix.find(function(err, mixes) {
     return res.send(mixes);
   });
 });
 
-app.get('api/mixes/:id', function(req, res) {
+app.get('/api/mixes/:id', function(req, res) {
   return Mix.findById(req.params.id, function(err, mix) {
     if(!err) {
       return res.send(mix);

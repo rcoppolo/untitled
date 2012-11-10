@@ -1,0 +1,30 @@
+html
+  head
+    link(rel='stylesheet', href="/styles.css")
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(type='text/javascript', src='//use.typekit.net/vyv0hin.js')
+    script(type='text/javascript')
+      try{Typekit.load();}catch(e){}
+  body
+    #top
+      .inner
+        // h1 Muck
+    #middle
+    #bottom
+      .inner
+    #rdio
+    #yt
+    script(data-main="/main.js", src="/require.js")
+    script(type='text/javascript')
+      define('bootstrap', [], function() {
+        var data =  {
+          mix: !{JSON.stringify(mix)},
+          mixes: []
+        };
+        return data;
+      });
+    script(src="http://connect.soundcloud.com/sdk.js")
+    script
+      SC.initialize({
+        client_id: "#{sc_client_id}"
+      });
