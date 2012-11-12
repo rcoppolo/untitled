@@ -1,6 +1,6 @@
-define(['backbone', 'tpl!templates/mix_preview.html'], function(Backbone, template) {
+define(['support', 'tpl!templates/mix_preview.html'], function(Support, template) {
 
-  var MixPreview = Backbone.View.extend({
+  var MixPreview = Support.CompositeView.extend({
 
     initialize: function() {
       this.model.on('sync', this.render, this);

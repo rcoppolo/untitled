@@ -1,6 +1,6 @@
-define(['backbone', 'views/mix_preview', 'models/mix', 'tpl!templates/mixes_view.html'], function(Backbone, MixPreview, Mix, template) {
+define(['support', 'views/mix_preview', 'models/mix', 'tpl!templates/mixes_view.html'], function(Support, MixPreview, Mix, template) {
 
-  var MixesView = Backbone.View.extend({
+  var MixesView = Support.CompositeView.extend({
 
     initialize: function() {
       this.collection.on('add', this.render, this);
@@ -13,17 +13,18 @@ define(['backbone', 'views/mix_preview', 'models/mix', 'tpl!templates/mixes_view
     },
 
     render: function() {
-      $(this.el).html(template());
-      this.appendMixes();
+      this.$el.html(template());
+      this.renderMixes();
       return this;
     },
 
-    appendMixes: function() {
+    renderMixes: function() {
       var self = this;
-      self.$('#mixes').empty();
+      var mixes_container = self.$('#mixes');
+      mixes_container.empty();
       this.collection.forEach(function(model) {
         var mix_preview = new MixPreview({ model: model });
-        self.$('#mixes').append(mix_preview.el);
+        self.appendChildTo(mix_preview, mixes_container);
       });
     },
 
