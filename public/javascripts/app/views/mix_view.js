@@ -1,6 +1,6 @@
-define(['backbone', 'views/song_view', 'models/song', 'tpl!templates/mix_view.html'], function(Backbone, SongView, Song, template) {
+define(['support', 'views/song_view', 'models/song', 'tpl!templates/mix_view.html'], function(Support, SongView, Song, template) {
 
-  var MixView = Backbone.View.extend({
+  var MixView = Support.CompositeView.extend({
 
     initialize: function() {
       this.model.on('change', this.render, this);
@@ -13,12 +13,17 @@ define(['backbone', 'views/song_view', 'models/song', 'tpl!templates/mix_view.ht
     },
 
     render: function() {
-      $(this.el).html(template({mix: this.model}));
+      this.$el.html(template({mix: this.model}));
+      return this;
+    },
+
+    renderSongs: function() {
+      var self = this;
+      var songs_container = self.$('#songs');
       this.model.songs.models.forEach(function(model) {
         var song_view = new SongView({ model: model });
-        $('#songs').append(song_view.el);
+        self.appendChildTo(song_view, songs_container);
       });
-      return this;
     },
 
     deleteMix: function(e) {

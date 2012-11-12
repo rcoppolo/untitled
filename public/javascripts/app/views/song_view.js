@@ -1,6 +1,6 @@
-define(['backbone', 'tpl!templates/song_view.html'], function(Backbone, template) {
+define(['support', 'tpl!templates/song_view.html'], function(Support, template) {
 
-  var SongView = Backbone.View.extend({
+  var SongView = Support.CompositeView.extend({
 
     initialize: function() {
       this.render();
