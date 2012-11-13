@@ -12,7 +12,7 @@ define(['underscore', 'backbone', 'collections/songs'], function(_, Backbone, So
 
     parseSongs: function() {
       var attr_songs = this.get('songs');
-      this.songs = new Songs(attr_songs);
+      this.songs = new Songs(attr_songs, { parent: this });
     },
 
     toJSON: function() {
