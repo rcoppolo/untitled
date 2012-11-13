@@ -57,7 +57,7 @@ requirejs([
         && href.slice(0, protocol.length) !== protocol
         && !/javascript/.test(href)) {
           e.preventDefault();
-          Backbone.history.navigate('mixes/' + href, true);
+          Backbone.history.navigate(href, true);
       }
 
     });

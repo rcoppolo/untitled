@@ -1,7 +1,7 @@
 define(['underscore', 'backbone', 'collections/songs'], function(_, Backbone, Songs) {
 
   var Mix = Backbone.Model.extend({
-    idAttribute: '_id',
+    idAttribute: 'id',
     defaults: {
       plays: 0,
       locked: false

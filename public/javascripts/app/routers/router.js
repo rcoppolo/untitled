@@ -13,7 +13,7 @@ define(['support', 'views/mixes_view', 'views/mix_view', 'collections/mixes', 'm
 
     routes: {
       '': 'index',
-      'mixes/:id': 'show'
+      ':id': 'show'
     },
 
     index: function() {
