@@ -13,6 +13,7 @@ define(['backbone', 'models/song'], function(Backbone, Song) {
     save: function() {
       this.mix.save();
     }
+
   });
 
   return Songs;

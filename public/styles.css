@@ -166,6 +166,7 @@ body #middle {
   padding-top: 10px;
 }
 body #middle #new {
+  float: left;
   cursor: pointer;
 }
 body #middle a#new_mix {
@@ -177,28 +178,30 @@ body #middle #create {
 body #middle .nope {
   color: rgba(0,0,0,0.4);
 }
+body #middle .preview {
+  cursor: pointer;
+}
 body #middle .delete {
+  float: right;
+  color: rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+body #middle .delete_song {
   color: rgba(0,0,0,0.3);
   cursor: pointer;
 }
 body #middle .confirm {
   color: #f00;
 }
-body #middle #mixes,
-body #middle #songs {
-  padding: 10px 0;
+body #middle #songs,
+body #middle #mixes {
+  clear: both;
 }
-body #middle #mixes .preview,
-body #middle #songs .preview,
-body #middle #mixes .song,
-body #middle #songs .song {
-  padding: 10px;
+body #middle .details {
+  display: none;
 }
-body #middle #mixes .preview + .preview,
-body #middle #songs .preview + .preview,
-body #middle #mixes .song + .song,
-body #middle #songs .song + .song {
-  border-top: 1px solid rgba(0,0,0,0.1);
+body #middle .show {
+  display: block;
 }
 body #yt {
   display: none;

@@ -18,6 +18,7 @@ body
       top .25em
   #middle
     #new
+      float left
       cursor pointer
     a#new_mix
       font-size 1.1em
@@ -27,11 +28,23 @@ body
       color: rgba(#000,.4)
     padding 0 10px
     padding-top 10px
+    .preview
+      cursor pointer
     .delete
+      float right
+      color rgba(#000,.3)
+      cursor pointer
+    .delete_song
       color rgba(#000,.3)
       cursor pointer
     .confirm
       color red
+    #songs, #mixes
+      clear both
+    .details
+      display none
+    .show
+      display block
     // #new
     //   form
     //     padding 0 10px
@@ -62,12 +75,5 @@ body
     //     text-decoration none
     //     &hover
     //       text-decoration underline
-    #mixes, #songs
-      padding 10px 0
-      .preview, .song
-        padding 10px
-
-      .preview + .preview, .song + .song
-        border-top 1px solid rgba(0,0,0,.1)
   #yt
     display none

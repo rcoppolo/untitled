@@ -17,6 +17,7 @@ define(['support', 'views/song_view', 'models/song', 'tpl!templates/mix_view.htm
 
     render: function() {
       this.$el.html(template({mix: this.model}));
+      this.renderSongs();
       return this;
     },
 
