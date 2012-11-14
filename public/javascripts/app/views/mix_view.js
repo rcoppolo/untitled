@@ -9,7 +9,10 @@ define(['support', 'views/song_view', 'models/song', 'tpl!templates/mix_view.htm
 
     events: {
       'click .delete': 'deleteMix',
-      'click .confirm': 'reallyDelete'
+      'click .confirm': 'reallyDelete',
+      'click #new': 'newSong',
+      'submit #create': 'createSong',
+      'click #play': 'playMix'
     },
 
     render: function() {
@@ -33,6 +36,21 @@ define(['support', 'views/song_view', 'models/song', 'tpl!templates/mix_view.htm
     reallyDelete: function() {
       this.model.destroy();
       Backbone.history.navigate("/", {'trigger': true});
+    },
+
+    newSong: function(e) {
+      $('#create').show().children('input').focus();
+    },
+
+    createSong: function(e) {
+      e.preventDefault();
+      song = new Song({url: $(e.currentTarget).children('input').val()});
+      this.model.songs.add(song);
+      this.model.save();
+    },
+
+    playMix: function() {
+      this.model.play(0);
     }
 
   });

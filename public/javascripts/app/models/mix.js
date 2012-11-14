@@ -1,13 +1,17 @@
-define(['underscore', 'backbone', 'collections/songs'], function(_, Backbone, Songs) {
+define(['underscore', 'backbone', 'player', 'collections/songs'], function(_, Backbone, Player, Songs) {
 
   var Mix = Backbone.Model.extend({
+
     idAttribute: 'id',
+
     defaults: {
       plays: 0,
       locked: false
     },
+
     initialize: function() {
       this.parseSongs();
+      this.current = 0;
     },
 
     parseSongs: function() {
@@ -19,6 +23,12 @@ define(['underscore', 'backbone', 'collections/songs'], function(_, Backbone, So
       var json = _.clone(this.attributes);
       json.songs = this.songs.toJSON();
       return json;
+    },
+
+    play: function(index) {
+      if (this.songs.length > 0) {
+        Player.play(this.songs.models[index].get('url'));
+      }
     }
   });
 
