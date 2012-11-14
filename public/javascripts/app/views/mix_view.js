@@ -12,7 +12,10 @@ define(['support', 'views/song_view', 'models/song', 'tpl!templates/mix_view.htm
       'click .confirm': 'reallyDelete',
       'click #new': 'newSong',
       'submit #create': 'createSong',
-      'click #play': 'playMix'
+      'click #play': 'playMix',
+      'click #pause': 'pauseMix',
+      'done #pause': 'done',
+      'click #again': 'startOver'
     },
 
     render: function() {
@@ -52,6 +55,23 @@ define(['support', 'views/song_view', 'models/song', 'tpl!templates/mix_view.htm
 
     playMix: function() {
       this.model.play(0);
+      $('#play').parent().prepend("<p id='pause'>Pause</p>");
+      $('#play').remove();
+    },
+
+    pauseMix: function() {
+      this.model.pause();
+      $('#pause').parent().prepend("<p id='play'>Play</p>");
+      $('#pause').remove()
+    },
+
+    startOver: function() {
+      this.model.play(0);
+    },
+
+    done: function() {
+      $('#pause').parent().prepend("<p id='again'>Start over?</p>");
+      $('#pause').remove()
     }
 
   });

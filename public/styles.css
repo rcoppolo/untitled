@@ -178,7 +178,10 @@ body #middle #create {
 body #middle .nope {
   color: rgba(0,0,0,0.4);
 }
-body #middle .preview {
+body #middle .preview,
+body #middle #pause,
+body #middle #play,
+body #middle #again {
   cursor: pointer;
 }
 body #middle .delete {

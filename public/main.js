@@ -32,8 +32,6 @@ requirejs([
 
   $(document).ready(function() {
 
-    window.heyy = Support;
-
     var router = new Router({data: data});
     Backbone.history.start({pushState: true});
 

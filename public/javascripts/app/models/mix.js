@@ -1,4 +1,4 @@
-define(['underscore', 'backbone', 'player', 'collections/songs'], function(_, Backbone, Player, Songs) {
+define(['underscore', 'backbone', 'collections/songs'], function(_, Backbone, Songs) {
 
   var Mix = Backbone.Model.extend({
 
@@ -12,6 +12,12 @@ define(['underscore', 'backbone', 'player', 'collections/songs'], function(_, Ba
     initialize: function() {
       this.parseSongs();
       this.current = 0;
+      this.player = $('#player');
+      $(this.player).attr('src', this.songs.models[0].get('url'));
+      self = this;
+      $(this.player).on('ended', function() {
+        self.next();
+      });
     },
 
     parseSongs: function() {
@@ -27,9 +33,29 @@ define(['underscore', 'backbone', 'player', 'collections/songs'], function(_, Ba
 
     play: function(index) {
       if (this.songs.length > 0) {
-        Player.play(this.songs.models[index].get('url'));
+        if (index) {
+          $(this.player).attr('src', this.songs.models[index].get('url'));
+          this.player[0].play();
+        } else {
+          this.player[0].play();
+        }
+      }
+    },
+
+    pause: function() {
+      this.player[0].pause();
+    },
+
+    next: function() {
+      if (this.current < this.songs.length - 1) {
+        this.current = this.current + 1;
+        $(this.player).attr('src', this.songs.models[this.current].get('url'));
+        this.player[0].play();
+      } else {
+        $('#pause').trigger('done');
       }
     }
+
   });
 
   return Mix;
