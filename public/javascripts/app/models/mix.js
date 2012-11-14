@@ -13,7 +13,9 @@ define(['underscore', 'backbone', 'collections/songs'], function(_, Backbone, So
       this.parseSongs();
       this.current = 0;
       this.player = $('#player');
-      $(this.player).attr('src', this.songs.models[0].get('url'));
+      if (this.songs.length > 0) {
+        $(this.player).attr('src', this.songs.models[0].get('url'));
+      }
       self = this;
       $(this.player).on('ended', function() {
         self.next();
